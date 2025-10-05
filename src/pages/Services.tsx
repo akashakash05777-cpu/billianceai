@@ -236,17 +236,17 @@ const Services = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-gray-50">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Don't just take our word for it. Here's what industry leaders say about our solutions.
             </p>
           </div>
@@ -255,17 +255,17 @@ const Services = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6 md:p-8 hover:border-cyan-500/50 transition-all duration-500"
+                className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-blue-500/10"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-blue-600 fill-current" />
                   ))}
                 </div>
-                <p className="text-slate-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <p className="text-gray-600 mb-6 leading-relaxed">"{testimonial.content}"</p>
                 <div>
-                  <div className="font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-cyan-400 text-sm">{testimonial.role}, {testimonial.company}</div>
+                  <div className="font-semibold text-gray-800">{testimonial.name}</div>
+                  <div className="text-blue-600 text-sm">{testimonial.role}, {testimonial.company}</div>
                 </div>
               </div>
             ))}
@@ -274,19 +274,19 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-white">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 text-gray-800">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 mb-10 md:mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 mb-10 md:mb-12 max-w-2xl mx-auto">
             Let's discuss how our AI solutions can revolutionize your retail operations
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-110">
+            <Button className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 hover:scale-105">
               Get Started <ArrowRight className="ml-2" size={24} />
             </Button>
-            <Button variant="outline" className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold border-2 border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 transition-all duration-300">
+            <Button variant="outline" className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300">
               View Portfolio
             </Button>
           </div>
