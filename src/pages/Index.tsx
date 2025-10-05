@@ -370,12 +370,12 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" ref={servicesRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-gray-50">
+      <section id="services" ref={servicesRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-white">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50"></div>
+        <div className="absolute inset-0 bg-white"></div>
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/3 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -396,12 +396,12 @@ const Index = () => {
               return (
                 <div
                   key={index}
-                  className="group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 animate-in fade-in slide-in-from-bottom"
+                  className="group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 animate-in fade-in slide-in-from-bottom"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Floating Icon Background */}
-                  <div className="absolute -top-6 -right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    <IconComponent size={120} className="text-blue-500" />
+                  <div className="absolute -top-6 -right-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <IconComponent size={120} className="text-blue-600" />
                   </div>
 
                   {/* Icon */}
@@ -414,7 +414,7 @@ const Index = () => {
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed relative z-10">{service.desc}</p>
 
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/10 group-hover:to-blue-600/10 rounded-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/5 group-hover:to-blue-600/5 rounded-2xl transition-all duration-500"></div>
                 </div>
               );
             })}
@@ -423,9 +423,9 @@ const Index = () => {
       </section>
 
       {/* Team Section */}
-      <section id="team" ref={teamRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-white">
+      <section id="team" ref={teamRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-gray-50">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50"></div>
+        <div className="absolute inset-0 bg-gray-50"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16 md:mb-24">
@@ -451,10 +451,10 @@ const Index = () => {
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* Card Content */}
-                <div className="relative bg-white border border-gray-200 group-hover:border-blue-500/50 rounded-2xl p-6 md:p-8 transition-all duration-500">
+                <div className="relative bg-white border border-gray-200 group-hover:border-blue-600 rounded-2xl p-6 md:p-8 transition-all duration-500">
                   {/* Image */}
                   <div className="relative mb-6 overflow-hidden rounded-xl bg-gray-100">
                     <img 
@@ -481,10 +481,10 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden bg-gray-50">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+      <section className="py-20 md:py-32 relative overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-white"></div>
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
