@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X, Sparkles, Zap, Shield, Brain, Code, Database, Cpu, Cloud, Lock, TrendingUp } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import logo1 from "@/assets/logo.png";
 
 const LogoLink = () => {
@@ -168,6 +169,11 @@ const Index = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const servicesRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
+  
+  // Framer Motion scroll hooks
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
 
   // Scroll progress tracking
@@ -304,151 +310,407 @@ const Index = () => {
 
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <motion.section 
+        id="hero" 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+        style={{ y, opacity }}
+      >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/3 to-blue-600/3 rounded-full blur-3xl animate-spin" style={{ animationDuration: '20s' }}></div>
+          <motion.div 
+            className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.5, 0.2]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+          <motion.div 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/3 to-blue-600/3 rounded-full blur-3xl"
+            animate={{ rotate: 360 }}
+            transition={{ 
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             {/* Floating Icons */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none hidden md:block">
-              <Sparkles className="absolute top-10 left-10 text-blue-500 opacity-60 animate-bounce" size={24} style={{ animationDuration: '3s' }} />
-              <Zap className="absolute top-20 right-20 text-blue-600 opacity-60 animate-bounce" size={28} style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
-              <Brain className="absolute bottom-32 left-20 text-blue-700 opacity-60 animate-bounce" size={32} style={{ animationDuration: '3.5s', animationDelay: '1s' }} />
-              <Cloud className="absolute bottom-20 right-32 text-blue-500 opacity-60 animate-bounce" size={26} style={{ animationDuration: '3s', animationDelay: '1.5s' }} />
+              <motion.div
+                animate={{ 
+                  y: [-10, 10, -10],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-10 left-10"
+              >
+                <Sparkles className="text-blue-500 opacity-60" size={24} />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  y: [10, -10, 10],
+                  rotate: [0, -5, 0]
+                }}
+                transition={{ 
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+                className="absolute top-20 right-20"
+              >
+                <Zap className="text-blue-600 opacity-60" size={28} />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  y: [-15, 15, -15],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+                className="absolute bottom-32 left-20"
+              >
+                <Brain className="text-blue-700 opacity-60" size={32} />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  y: [15, -15, 15],
+                  x: [-5, 5, -5]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5
+                }}
+                className="absolute bottom-20 right-32"
+              >
+                <Cloud className="text-blue-500 opacity-60" size={26} />
+              </motion.div>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8 animate-in fade-in slide-in-from-top duration-1000">
-              <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.div 
+                className="w-2 h-2 rounded-full bg-blue-600"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
               <span className="text-sm font-medium text-blue-700">Introducing billianceai</span>
-            </div>
+            </motion.div>
           
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight animate-in fade-in slide-in-from-bottom duration-1000 delay-200">
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
               <span className="text-gray-800">
                 And for those not just browsing,
               </span>
               <br />
-              <span className="text-blue-600">
+              <motion.span 
+                className="text-blue-600"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  background: "linear-gradient(90deg, #2563eb, #3b82f6, #2563eb)",
+                  backgroundSize: "200% 100%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
                 welcome home!
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500">
+            <motion.p 
+              className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
               You've seen software that works. But have you felt software that <span className="text-blue-600 font-semibold">fits</span>?
-            </p>
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
-              <Button
-                size="lg"
-                className="text-base px-10 py-6 h-auto rounded-full font-semibold bg-blue-600 hover:bg-blue-700 text-white hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
-                onClick={() => setIsDialogOpen(true)}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Get Started <ArrowRight className="ml-2" size={20} />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-10 py-6 h-auto rounded-full font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300"
-                asChild
+                <Button
+                  size="lg"
+                  className="text-base px-10 py-6 h-auto rounded-full font-semibold bg-blue-600 hover:bg-blue-700 text-white hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
+                  onClick={() => setIsDialogOpen(true)}
+                >
+                  Get Started <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Link to="/services">Explore Services</Link>
-              </Button>
-            </div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-10 py-6 h-auto rounded-full font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300"
+                  asChild
+                >
+                  <Link to="/services">Explore Services</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <motion.div 
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
           <div className="w-6 h-10 border-2 border-blue-600/50 rounded-full p-1">
-            <div className="w-1.5 h-3 bg-blue-600 rounded-full mx-auto animate-pulse"></div>
+            <motion.div 
+              className="w-1.5 h-3 bg-blue-600 rounded-full mx-auto"
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* Services Section */}
-      <section id="services" ref={servicesRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-white">
+      <motion.section 
+        id="services" 
+        ref={servicesRef} 
+        className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         {/* Background Elements */}
         <div className="absolute inset-0 bg-white"></div>
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/3 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <motion.div 
+            className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/3 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/3 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="text-center mb-16 md:mb-20">
+          <motion.div 
+            className="text-center mb-16 md:mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               <span className="text-gray-800">OUR</span>
               <br />
-              <span className="text-blue-600">EXPERTISE</span>
+              <motion.span 
+                className="text-blue-600"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                EXPERTISE
+              </motion.span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Comprehensive AI solutions for the retail revolution
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 animate-in fade-in slide-in-from-bottom"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
                 >
                   {/* Floating Icon Background */}
-                  <div className="absolute -top-6 -right-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                  <motion.div 
+                    className="absolute -top-6 -right-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                    animate={{ 
+                      rotate: [0, 5, 0],
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
                     <IconComponent size={120} className="text-blue-600" />
-                  </div>
+                  </motion.div>
 
                   {/* Icon */}
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-600 p-3 md:p-4 mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <motion.div 
+                    className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-600 p-3 md:p-4 mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10"
+                    whileHover={{ rotate: 5 }}
+                  >
                     <IconComponent className="w-full h-full text-white" />
-                  </div>
+                  </motion.div>
 
                   {/* Content */}
                   <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 relative z-10">{service.title}</h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed relative z-10">{service.desc}</p>
 
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/5 group-hover:to-blue-600/5 rounded-2xl transition-all duration-500"></div>
-                </div>
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/5 group-hover:to-blue-600/5 rounded-2xl transition-all duration-500"
+                    whileHover={{ 
+                      background: "linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%)"
+                    }}
+                  />
+                </motion.div>
               );
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Team Section */}
-      <section id="team" ref={teamRef} className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-gray-50">
+      <motion.section 
+        id="team" 
+        ref={teamRef} 
+        className="min-h-screen py-20 md:py-32 relative overflow-hidden bg-gray-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         {/* Background */}
         <div className="absolute inset-0 bg-gray-50"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="text-center mb-16 md:mb-24">
+          <motion.div 
+            className="text-center mb-16 md:mb-24"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight">
-              <span className="text-gray-800">THE MINDS</span>
+              <motion.span 
+                className="text-gray-800"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                THE MINDS
+              </motion.span>
               <br />
-              <span className="text-gray-800">BEHIND THE</span>
+              <motion.span 
+                className="text-gray-800"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                BEHIND THE
+              </motion.span>
               <br />
-              <span className="text-blue-600 italic">
+              <motion.span 
+                className="text-blue-600 italic"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
                 MISSION.
-              </span>
+              </motion.span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the brilliant minds transforming retail with AI
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {teamMembers.map((member, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group relative rounded-2xl overflow-hidden animate-in fade-in slide-in-from-bottom hover:scale-105 transition-all duration-500"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="group relative rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500"
+                initial={{ opacity: 0, y: 50, rotateX: 15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, rotateY: 5 }}
               >
                 {/* Gradient Background */}
                 <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

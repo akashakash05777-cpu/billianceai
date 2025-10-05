@@ -1,5 +1,6 @@
 import React from 'react';
 import { Brain, Target, Users, Award, TrendingUp, Shield, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const stats = [
@@ -39,49 +40,114 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <motion.section 
+        className="pt-32 pb-20 relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <motion.div 
+            className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.5, 0.2]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-blue-600">
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.span 
+                className="text-blue-600"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 About BillianceAI
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              </motion.span>
+            </motion.h1>
+            <motion.p 
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               We are pioneers in retail AI transformation, combining cutting-edge machine learning with real-world business solutions to revolutionize how retailers operate, analyze, and grow.
-            </p>
+            </motion.p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Stats Section */}
-      <section className="py-20 relative">
+      <motion.section 
+        className="py-20 relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <div
+                <motion.div
                   key={index}
                   className="text-center p-6 rounded-2xl bg-white border border-gray-200 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 shadow-lg"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -5, rotateY: 5 }}
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-blue-600 p-4">
+                  <motion.div 
+                    className="w-16 h-16 mx-auto mb-4 rounded-xl bg-blue-600 p-4"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <IconComponent className="w-full h-full text-white" />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{stat.value}</div>
+                  </motion.div>
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold text-gray-800 mb-2"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                  >
+                    {stat.value}
+                  </motion.div>
                   <div className="text-gray-600 text-sm md:text-base">{stat.label}</div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Story Section */}
       <section className="py-20 relative">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, ArrowRight, Star, Users, TrendingUp, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import PortfolioModal from '@/components/PortfolioModal';
 
 const Portfolio = () => {

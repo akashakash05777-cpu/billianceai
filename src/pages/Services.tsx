@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Brain, Cpu, Shield, Code, Database, Sparkles, ArrowRight, CheckCircle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import PortfolioModal from '@/components/PortfolioModal';
 
 const Services = () => {
