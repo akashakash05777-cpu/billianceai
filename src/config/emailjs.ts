@@ -6,13 +6,13 @@ export const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_b8zdkml',
   
   // Your EmailJS Template ID
-  TEMPLATE_ID: 'template_ar6rivz',
+  TEMPLATE_ID: 'service_b8zdkml',
   
   // Your EmailJS Public Key
   PUBLIC_KEY: 'd1js-KeDjtB8n1LML',
   
   // Your email address where you want to receive the messages
-  TO_EMAIL: 'akashakash0577@gmail.com'
+  TO_EMAIL: 'friendscallmeharish@gmail.com'
 };
 
 // Template parameters mapping
