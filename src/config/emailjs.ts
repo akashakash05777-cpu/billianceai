@@ -6,7 +6,7 @@ export const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_b8zdkml',
   
   // Your EmailJS Template ID
-  TEMPLATE_ID: 'template_qe0tokk',
+  TEMPLATE_ID: 'template_ar6rivz',
   
   // Your EmailJS Public Key
   PUBLIC_KEY: 'd1js-KeDjtB8n1LML',
