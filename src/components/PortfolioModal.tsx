@@ -216,30 +216,30 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
     <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 animate-in fade-in duration-300">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-slate-950/90 backdrop-blur-xl"
+        className="absolute inset-0 bg-black/50 backdrop-blur-xl"
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="relative bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl shadow-cyan-500/20 animate-in zoom-in-95 duration-300 mx-2 sm:mx-4">
+      <div className="relative bg-white border border-gray-200 rounded-2xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl shadow-blue-500/20 animate-in zoom-in-95 duration-300 mx-2 sm:mx-4">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-slate-700/50">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 p-2 sm:p-3 flex-shrink-0">
-              <TrendingUp className="w-full h-full text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-600 p-2 sm:p-3 flex-shrink-0">
+              <TrendingUp className="w-full h-full text-gray-800" />
             </div>
             <div className="min-w-0 flex-1">
-              <h2 className="text-lg sm:text-2xl font-bold text-white truncate">
+              <h2 className="text-lg sm:text-2xl font-bold text-gray-800 truncate">
                 {loading ? 'Loading Project...' : project?.title}
               </h2>
-              <p className="text-slate-400 text-xs sm:text-sm truncate">
+              <p className="text-gray-600 text-xs sm:text-sm truncate">
                 {loading ? 'Fetching details...' : `${project?.client} • ${project?.duration}`}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white transition-colors bg-slate-700/50 hover:bg-slate-700 rounded-full p-2 flex-shrink-0 ml-2"
+            className="text-gray-400 hover:text-gray-600 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2 flex-shrink-0 ml-2"
           >
             <X size={18} className="sm:w-5 sm:h-5" />
           </button>
@@ -250,19 +250,19 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
-                <Loader2 className="w-12 h-12 text-cyan-400 animate-spin mx-auto mb-4" />
-                <p className="text-slate-300">Loading project details...</p>
-                <p className="text-slate-500 text-sm mt-2">Fetching from our knowledge base</p>
+                <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+                <p className="text-gray-600">Loading project details...</p>
+                <p className="text-gray-500 text-sm mt-2">Fetching from our knowledge base</p>
               </div>
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
-                <div className="w-12 h-12 text-red-400 mx-auto mb-4">⚠️</div>
-                <p className="text-slate-300">{error}</p>
+                <div className="w-12 h-12 text-red-500 mx-auto mb-4">⚠️</div>
+                <p className="text-gray-600">{error}</p>
                 <Button 
                   onClick={fetchProjectDetails}
-                  className="mt-4 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white"
+                  className="mt-4 bg-blue-600 hover:bg-blue-700 text-gray-800"
                 >
                   Try Again
                 </Button>
@@ -283,7 +283,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                     className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       activeTab === tab.id
                         ? 'text-cyan-400 border-b-2 border-cyan-400'
-                        : 'text-slate-400 hover:text-slate-300'
+                        : 'text-gray-500 hover:text-gray-600'
                     }`}
                   >
                     {tab.label}
@@ -305,18 +305,18 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
 
                   {/* Description */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Project Overview</h3>
-                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{project.longDescription}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Project Overview</h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{project.longDescription}</p>
                   </div>
 
                   {/* Key Results */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Key Results</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Key Results</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
                       {Object.entries(project.results).map(([key, value], index) => (
                         <div key={index} className="text-center p-3 sm:p-4 bg-slate-700/30 rounded-xl">
                           <div className="text-lg sm:text-2xl font-bold text-cyan-400">{value}</div>
-                          <div className="text-xs text-slate-400 capitalize mt-1">
+                          <div className="text-xs text-gray-500 capitalize mt-1">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </div>
                         </div>
@@ -326,7 +326,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
 
                   {/* Technologies */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Technologies Used</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Technologies Used</h3>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
                         <span
@@ -345,10 +345,10 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                 <div className="space-y-6 sm:space-y-8">
                   {/* Challenges */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Challenges</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Challenges</h3>
                     <ul className="space-y-2 sm:space-y-3">
                       {project.challenges.map((challenge, index) => (
-                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-slate-300">
+                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
                           {challenge}
                         </li>
@@ -358,10 +358,10 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
 
                   {/* Solutions */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Our Solutions</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Our Solutions</h3>
                     <ul className="space-y-2 sm:space-y-3">
                       {project.solutions.map((solution, index) => (
-                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-slate-300">
+                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
                           {solution}
                         </li>
@@ -371,9 +371,9 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
 
                   {/* Case Study */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Case Study</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Case Study</h3>
                     <div className="bg-slate-700/30 rounded-xl p-4 sm:p-6">
-                      <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{project.caseStudy}</p>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{project.caseStudy}</p>
                     </div>
                   </div>
                 </div>
@@ -383,10 +383,10 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                 <div className="space-y-6 sm:space-y-8">
                   {/* Impact */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Business Impact</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Business Impact</h3>
                     <ul className="space-y-2 sm:space-y-3">
                       {project.impact.map((impact, index) => (
-                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-slate-300">
+                        <li key={index} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                           <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                           {impact}
                         </li>
@@ -396,17 +396,17 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
 
                   {/* Testimonials */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Client Testimonial</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Client Testimonial</h3>
                     <div className="bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-xl p-4 sm:p-6 border border-cyan-500/20">
-                      <blockquote className="text-sm sm:text-base text-slate-300 italic mb-3 sm:mb-4">
+                      <blockquote className="text-sm sm:text-base text-gray-600 italic mb-3 sm:mb-4">
                         "{project.testimonials[0].quote}"
                       </blockquote>
                       <div className="flex items-center gap-2 sm:gap-3">
                         <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full flex items-center justify-center">
-                          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800" />
                         </div>
                         <div>
-                          <div className="font-semibold text-white text-sm sm:text-base">{project.testimonials[0].author}</div>
+                          <div className="font-semibold text-gray-800 text-sm sm:text-base">{project.testimonials[0].author}</div>
                           <div className="text-cyan-400 text-xs sm:text-sm">
                             {project.testimonials[0].role}, {project.testimonials[0].company}
                           </div>
@@ -420,7 +420,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                     {project.liveUrl && (
                       <Button 
                         asChild
-                        className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white text-sm sm:text-base"
+                        className="bg-blue-600 hover:bg-blue-700 text-gray-800 text-sm sm:text-base"
                       >
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="mr-2" size={14} />
@@ -432,7 +432,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                       <Button 
                         variant="outline"
                         asChild
-                        className="border-slate-600 text-slate-300 hover:bg-slate-700/50 text-sm sm:text-base"
+                        className="border-slate-600 text-gray-600 hover:bg-slate-700/50 text-sm sm:text-base"
                       >
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2" size={14} />
