@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
       scrolled 
-        ? 'backdrop-blur-xl bg-slate-950/90 border-b border-cyan-500/20' 
+        ? 'backdrop-blur-xl bg-white/95 border-b border-blue-200' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-3 sm:px-4 md:px-6">
@@ -46,7 +46,7 @@ const Navbar = () => {
               alt="billianceai logo" 
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 animate-pulse" 
             />
-            <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">
               billianceai
             </span>
           </Link>
@@ -57,15 +57,15 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative text-sm font-medium transition-colors duration-300 hover:text-cyan-400 ${
+                className={`relative text-sm font-medium transition-colors duration-300 hover:text-blue-600 ${
                   isActive(item.path)
-                    ? 'text-cyan-400'
-                    : 'text-slate-300'
+                    ? 'text-blue-600'
+                    : 'text-gray-600'
                 }`}
               >
                 {item.name}
                 {isActive(item.path) && (
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 rounded-full"></div>
                 )}
               </Link>
             ))}
@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <Button 
               asChild
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm"
             >
               <Link to="/contact">
                 Get Started <ArrowRight className="ml-2" size={14} />
@@ -85,7 +85,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-300 hover:text-cyan-400 transition-colors duration-300 p-1"
+            className="md:hidden text-gray-600 hover:text-blue-600 transition-colors duration-300 p-1"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -95,7 +95,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-cyan-500/20 animate-in slide-in-from-top duration-300">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-blue-200 animate-in slide-in-from-top duration-300">
             <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 {navItems.map((item) => (
@@ -103,19 +103,19 @@ const Navbar = () => {
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`text-base sm:text-lg font-medium transition-colors duration-300 hover:text-cyan-400 py-1 ${
+                    className={`text-base sm:text-lg font-medium transition-colors duration-300 hover:text-blue-600 py-1 ${
                       isActive(item.path)
-                        ? 'text-cyan-400'
-                        : 'text-slate-300'
+                        ? 'text-blue-600'
+                        : 'text-gray-600'
                     }`}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-3 sm:pt-4 border-t border-slate-700/50">
+                <div className="pt-3 sm:pt-4 border-t border-gray-200">
                   <Button 
                     asChild
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-base"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-base"
                   >
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
                       Get Started <ArrowRight className="ml-2" size={14} />

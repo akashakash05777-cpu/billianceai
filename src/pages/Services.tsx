@@ -131,22 +131,22 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Our Services
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Comprehensive AI solutions designed to transform your retail business. From machine learning to computer vision, we provide the technology you need to stay ahead of the competition.
             </p>
           </div>
@@ -162,37 +162,37 @@ const Services = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative p-6 md:p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105 cursor-pointer ${
-                    activeService === index ? 'ring-2 ring-cyan-500/50' : ''
+                  className={`group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 cursor-pointer shadow-lg ${
+                    activeService === index ? 'ring-2 ring-blue-500/50' : ''
                   }`}
                   onClick={() => setActiveService(index)}
                 >
                   {/* Floating Icon Background */}
                   <div className="absolute -top-6 -right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    <IconComponent size={120} className="text-cyan-400" />
+                    <IconComponent size={120} className="text-blue-500" />
                   </div>
 
                   {/* Icon */}
-                  <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${service.color} p-3 md:p-4 mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-600 p-3 md:p-4 mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
                     <IconComponent className="w-full h-full text-white" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 relative z-10">{service.title}</h3>
-                  <p className="text-sm md:text-base text-slate-300 leading-relaxed relative z-10 mb-4">{service.shortDesc}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 relative z-10">{service.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed relative z-10 mb-4">{service.shortDesc}</p>
 
                   {/* Features List */}
                   <ul className="space-y-2 relative z-10">
                     {service.features.slice(0, 3).map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-slate-400">
-                        <CheckCircle className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" />
+                      <li key={idx} className="flex items-center text-sm text-gray-500">
+                        <CheckCircle className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-purple-500/0 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 rounded-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/10 group-hover:to-blue-600/10 rounded-2xl transition-all duration-500"></div>
                 </div>
               );
             })}
@@ -206,29 +206,29 @@ const Services = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${services[activeService].color} p-5 mb-6`}>
+                <div className="w-20 h-20 rounded-2xl bg-blue-600 p-5 mb-6">
                   {React.createElement(services[activeService].icon, { className: "w-full h-full text-white" })}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
                   {services[activeService].title}
                 </h2>
-                <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   {services[activeService].description}
                 </p>
                 <Button 
-                  className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 rounded-full"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full"
                   onClick={() => setIsModalOpen(true)}
                 >
                   Learn More <ArrowRight className="ml-2" size={20} />
                 </Button>
               </div>
               <div className="relative">
-                <div className={`aspect-square rounded-2xl bg-gradient-to-br ${services[activeService].bgColor} border border-slate-700/50 p-8`}>
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-600/10 border border-gray-200 p-8">
                   <div className="w-full h-full flex items-center justify-center">
-                    {React.createElement(services[activeService].icon, { className: "w-32 h-32 text-cyan-400 opacity-60" })}
+                    {React.createElement(services[activeService].icon, { className: "w-32 h-32 text-blue-600 opacity-60" })}
                   </div>
                 </div>
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
               </div>
             </div>
           </div>
