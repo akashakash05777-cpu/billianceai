@@ -736,7 +736,7 @@ const Index = () => {
                   {/* Decorative Corner */}
                   <div className="absolute top-4 right-4 w-2 h-2 bg-blue-600 rounded-full group-hover:w-4 group-hover:h-4 transition-all duration-500"></div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
