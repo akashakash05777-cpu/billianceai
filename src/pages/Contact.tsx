@@ -25,16 +25,16 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Prepare template parameters
+      // Prepare template parameters - simplified for testing
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company,
-        phone: formData.phone,
-        service: formData.service,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        message: formData.message,
+        from_name: formData.name || 'No name provided',
+        from_email: formData.email || 'No email provided',
+        company: formData.company || 'No company provided',
+        phone: formData.phone || 'No phone provided',
+        service: formData.service || 'No service selected',
+        budget: formData.budget || 'No budget specified',
+        timeline: formData.timeline || 'No timeline specified',
+        message: formData.message || 'No message provided',
         to_email: EMAILJS_CONFIG.TO_EMAIL,
       };
       
@@ -47,6 +47,15 @@ const Contact = () => {
       });
       
       console.log('Template Params:', templateParams);
+      
+      // Test EmailJS connection first
+      try {
+        await emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+        console.log('EmailJS initialized successfully');
+      } catch (initError) {
+        console.error('EmailJS initialization failed:', initError);
+        throw new Error('EmailJS initialization failed');
+      }
       
       // Send email using EmailJS
       const result = await emailjs.send(
