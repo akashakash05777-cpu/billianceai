@@ -38,13 +38,25 @@ const Contact = () => {
         to_email: EMAILJS_CONFIG.TO_EMAIL,
       };
       
+      // Debug: Log the configuration
+      console.log('EmailJS Config:', {
+        serviceId: EMAILJS_CONFIG.SERVICE_ID,
+        templateId: EMAILJS_CONFIG.TEMPLATE_ID,
+        publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+        toEmail: EMAILJS_CONFIG.TO_EMAIL
+      });
+      
+      console.log('Template Params:', templateParams);
+      
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID, 
         EMAILJS_CONFIG.TEMPLATE_ID, 
         templateParams, 
         EMAILJS_CONFIG.PUBLIC_KEY
       );
+      
+      console.log('Email sent successfully:', result);
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -67,7 +79,22 @@ const Contact = () => {
     } catch (error) {
       console.error('Error sending email:', error);
       setIsSubmitting(false);
-      alert('Failed to send message. Please try again or contact us directly.');
+      
+      // More detailed error message
+      let errorMessage = 'Failed to send message. Please try again or contact us directly.';
+      
+      if (error instanceof Error) {
+        console.log('Error details:', error.message);
+        if (error.message.includes('Invalid template')) {
+          errorMessage = 'Email template configuration error. Please check your EmailJS template setup.';
+        } else if (error.message.includes('Invalid service')) {
+          errorMessage = 'Email service configuration error. Please check your EmailJS service setup.';
+        } else if (error.message.includes('Invalid public key')) {
+          errorMessage = 'EmailJS public key error. Please check your API key configuration.';
+        }
+      }
+      
+      alert(errorMessage);
     }
   };
 
