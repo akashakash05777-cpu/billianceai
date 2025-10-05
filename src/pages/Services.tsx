@@ -162,14 +162,14 @@ const Services = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 cursor-pointer shadow-lg ${
-                    activeService === index ? 'ring-2 ring-blue-500/50' : ''
+                  className={`group relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 cursor-pointer shadow-sm hover:shadow-xl hover:shadow-blue-500/10 ${
+                    activeService === index ? 'ring-2 ring-blue-600' : ''
                   }`}
                   onClick={() => setActiveService(index)}
                 >
                   {/* Floating Icon Background */}
-                  <div className="absolute -top-6 -right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    <IconComponent size={120} className="text-blue-500" />
+                  <div className="absolute -top-6 -right-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <IconComponent size={120} className="text-blue-600" />
                   </div>
 
                   {/* Icon */}
@@ -192,7 +192,7 @@ const Services = () => {
                   </ul>
 
                   {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-hover:from-blue-500/10 group-hover:to-blue-600/10 rounded-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 rounded-2xl transition-all duration-500"></div>
                 </div>
               );
             })}

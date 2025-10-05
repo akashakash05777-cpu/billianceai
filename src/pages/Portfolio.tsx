@@ -151,13 +151,13 @@ const Portfolio = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
               Featured Projects
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Our most impactful AI solutions that have revolutionized retail operations
             </p>
           </div>
@@ -166,15 +166,15 @@ const Portfolio = () => {
             {featuredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105"
+                className="group relative rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 shadow-sm hover:shadow-xl hover:shadow-blue-500/10"
               >
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                    <div className="text-6xl text-cyan-400 opacity-60">📊</div>
+                  <div className="w-full h-full bg-blue-50 flex items-center justify-center">
+                    <div className="text-6xl text-blue-600 opacity-60">📊</div>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <div className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       Featured
                     </div>
                   </div>
@@ -182,15 +182,15 @@ const Portfolio = () => {
 
                 {/* Project Content */}
                 <div className="p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">{project.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
 
                   {/* Results */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     {Object.entries(project.results).map(([key, value], idx) => (
                       <div key={idx} className="text-center">
-                        <div className="text-2xl font-bold text-cyan-400">{value}</div>
-                        <div className="text-xs text-slate-400 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                        <div className="text-2xl font-bold text-blue-600">{value}</div>
+                        <div className="text-xs text-gray-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
                       </div>
                     ))}
                   </div>
@@ -200,7 +200,7 @@ const Portfolio = () => {
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-sm"
+                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
                       >
                         {tech}
                       </span>
@@ -208,7 +208,7 @@ const Portfolio = () => {
                   </div>
 
                   {/* Project Info */}
-                  <div className="flex items-center justify-between text-sm text-slate-400 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-4">
                       <span className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
@@ -219,13 +219,13 @@ const Portfolio = () => {
                         {project.duration}
                       </span>
                     </div>
-                    <span className="text-green-400 font-medium">{project.status}</span>
+                    <span className="text-green-600 font-medium">{project.status}</span>
                   </div>
 
                   {/* Action Buttons */}
                   <div className="flex gap-2 sm:gap-3">
                     <Button 
-                      className="flex-1 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white text-sm"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm"
                       onClick={() => {
                         setSelectedProject(project.id);
                         setIsModalOpen(true);
@@ -233,7 +233,7 @@ const Portfolio = () => {
                     >
                       View Details <ArrowRight className="ml-2" size={14} />
                     </Button>
-                    <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700/50 p-2 sm:p-3">
+                    <Button variant="outline" className="border-gray-300 text-gray-600 hover:bg-gray-50 p-2 sm:p-3">
                       <ExternalLink size={14} />
                     </Button>
                   </div>
@@ -245,10 +245,10 @@ const Portfolio = () => {
       </section>
 
       {/* Filter and All Projects */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
               All Projects
             </h2>
             
@@ -260,8 +260,8 @@ const Portfolio = () => {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-6 py-3 rounded-full transition-all duration-300 ${
                     activeCategory === category.id
-                      ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white'
-                      : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700/50'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white text-gray-600 hover:bg-blue-50 border border-gray-200'
                   }`}
                 >
                   {category.name}
@@ -275,16 +275,16 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105"
+                className="group relative rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-blue-600 transition-all duration-500 hover:scale-105 shadow-sm hover:shadow-xl hover:shadow-blue-500/10"
               >
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                    <div className="text-4xl text-cyan-400 opacity-60">📈</div>
+                  <div className="w-full h-full bg-blue-50 flex items-center justify-center">
+                    <div className="text-4xl text-blue-600 opacity-60">📈</div>
                   </div>
                   {project.featured && (
                     <div className="absolute top-4 right-4">
-                      <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                      <div className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                         <Star className="w-3 h-3" />
                         Featured
                       </div>
@@ -294,15 +294,15 @@ const Portfolio = () => {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-lg md:text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
 
                   {/* Key Result */}
                   <div className="mb-4">
                     {Object.entries(project.results).slice(0, 1).map(([key, value], idx) => (
-                      <div key={idx} className="text-center p-3 bg-slate-700/30 rounded-lg">
-                        <div className="text-xl font-bold text-cyan-400">{value}</div>
-                        <div className="text-xs text-slate-400 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                      <div key={idx} className="text-center p-3 bg-blue-50 rounded-lg">
+                        <div className="text-xl font-bold text-blue-600">{value}</div>
+                        <div className="text-xs text-gray-600 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
                       </div>
                     ))}
                   </div>
@@ -312,27 +312,27 @@ const Portfolio = () => {
                     {project.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-slate-700/50 text-slate-300 rounded text-xs"
+                        className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-slate-700/50 text-slate-300 rounded text-xs">
+                      <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
                         +{project.technologies.length - 3}
                       </span>
                     )}
                   </div>
 
                   {/* Project Info */}
-                  <div className="flex items-center justify-between text-xs text-slate-400 mb-4">
+                  <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
                     <span>{project.client}</span>
-                    <span className="text-green-400">{project.status}</span>
+                    <span className="text-green-600">{project.status}</span>
                   </div>
 
                   {/* Action Button */}
                   <Button 
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white text-sm"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm"
                     onClick={() => {
                       setSelectedProject(project.id);
                       setIsModalOpen(true);
