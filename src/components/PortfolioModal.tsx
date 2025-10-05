@@ -271,7 +271,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
           ) : project ? (
             <div className="p-4 sm:p-6">
               {/* Tabs */}
-              <div className="flex gap-1 sm:gap-2 mb-6 sm:mb-8 border-b border-slate-700/50 overflow-x-auto">
+              <div className="flex gap-1 sm:gap-2 mb-6 sm:mb-8 border-b border-gray-200 overflow-x-auto">
                 {[
                   { id: 'overview', label: 'Overview' },
                   { id: 'details', label: 'Technical Details' },
@@ -282,7 +282,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                     onClick={() => setActiveTab(tab.id as any)}
                     className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       activeTab === tab.id
-                        ? 'text-cyan-400 border-b-2 border-cyan-400'
+                        ? 'text-blue-600 border-b-2 border-blue-600'
                         : 'text-gray-500 hover:text-gray-600'
                     }`}
                   >
@@ -297,8 +297,8 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                   {/* Project Images */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {project.images.map((image, index) => (
-                      <div key={index} className="aspect-video rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                        <div className="text-2xl sm:text-4xl text-cyan-400 opacity-60">📊</div>
+                      <div key={index} className="aspect-video rounded-xl bg-blue-50 flex items-center justify-center">
+                        <div className="text-2xl sm:text-4xl text-blue-600 opacity-60">📊</div>
                       </div>
                     ))}
                   </div>
@@ -314,9 +314,9 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Key Results</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
                       {Object.entries(project.results).map(([key, value], index) => (
-                        <div key={index} className="text-center p-3 sm:p-4 bg-slate-700/30 rounded-xl">
-                          <div className="text-lg sm:text-2xl font-bold text-cyan-400">{value}</div>
-                          <div className="text-xs text-gray-500 capitalize mt-1">
+                        <div key={index} className="text-center p-3 sm:p-4 bg-blue-50 rounded-xl border border-blue-100">
+                          <div className="text-lg sm:text-2xl font-bold text-blue-600">{value}</div>
+                          <div className="text-xs text-gray-600 capitalize mt-1">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </div>
                         </div>
@@ -331,7 +331,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                       {project.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 rounded-full text-xs sm:text-sm border border-cyan-500/30"
+                          className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs sm:text-sm border border-blue-200"
                         >
                           {tech}
                         </span>
@@ -372,8 +372,8 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                   {/* Case Study */}
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Case Study</h3>
-                    <div className="bg-slate-700/30 rounded-xl p-4 sm:p-6">
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{project.caseStudy}</p>
+                    <div className="bg-blue-50 rounded-xl p-4 sm:p-6 border border-blue-100">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{project.caseStudy}</p>
                     </div>
                   </div>
                 </div>
@@ -397,17 +397,17 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                   {/* Testimonials */}
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Client Testimonial</h3>
-                    <div className="bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-xl p-4 sm:p-6 border border-cyan-500/20">
-                      <blockquote className="text-sm sm:text-base text-gray-600 italic mb-3 sm:mb-4">
+                    <div className="bg-blue-50 rounded-xl p-4 sm:p-6 border border-blue-100">
+                      <blockquote className="text-sm sm:text-base text-gray-700 italic mb-3 sm:mb-4">
                         "{project.testimonials[0].quote}"
                       </blockquote>
                       <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full flex items-center justify-center">
-                          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                         </div>
                         <div>
                           <div className="font-semibold text-gray-800 text-sm sm:text-base">{project.testimonials[0].author}</div>
-                          <div className="text-cyan-400 text-xs sm:text-sm">
+                          <div className="text-blue-600 text-xs sm:text-sm">
                             {project.testimonials[0].role}, {project.testimonials[0].company}
                           </div>
                         </div>
@@ -420,7 +420,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                     {project.liveUrl && (
                       <Button 
                         asChild
-                        className="bg-blue-600 hover:bg-blue-700 text-gray-800 text-sm sm:text-base"
+                        className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base"
                       >
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="mr-2" size={14} />
@@ -432,7 +432,7 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose, projec
                       <Button 
                         variant="outline"
                         asChild
-                        className="border-slate-600 text-gray-600 hover:bg-slate-700/50 text-sm sm:text-base"
+                        className="border-gray-300 text-gray-600 hover:bg-gray-50 text-sm sm:text-base"
                       >
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2" size={14} />
