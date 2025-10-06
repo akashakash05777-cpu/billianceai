@@ -612,7 +612,7 @@ const Index = () => {
                   className="text-base px-10 py-6 h-auto rounded-full font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300"
                   asChild
                 >
-                  <Link to="/services">View Internship Tracks</Link>
+                  <Link to="/internships">View Internship Tracks</Link>
                 </Button>
               </motion.div>
             </motion.div>
