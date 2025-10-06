@@ -8,7 +8,10 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import Internships from "./pages/Internships";
+import StudentPortfolio from "./pages/StudentPortfolio";
 import TeamsPage from "./pages/Teams/TeamsPage";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import { useEffect } from "react";
@@ -49,7 +52,10 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/internships" element={<Internships />} />
+          <Route path="/student-portfolio" element={<StudentPortfolio />} />
           <Route path="/teams" element={<TeamsPage />} />
+          <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

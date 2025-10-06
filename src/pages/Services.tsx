@@ -10,85 +10,104 @@ const Services = () => {
 
   const services = [
     {
-      icon: Brain,
-      title: "Machine Learning Solutions",
-      shortDesc: "Advanced ML models for retail intelligence",
-      description: "Transform your retail data into predictive insights with our cutting-edge machine learning algorithms. From demand forecasting to customer behavior analysis, our ML solutions help you make data-driven decisions that drive growth.",
+      icon: Code,
+      title: "Software Development Fundamentals",
+      shortDesc: "Build modern web applications from scratch",
+      description: "Master the art of web development through live coding sessions. Learn HTML, CSS, JavaScript, and React while building a professional portfolio website. Perfect for beginners looking to start their tech career.",
       features: [
-        "Demand Forecasting Models",
-        "Customer Segmentation",
-        "Price Optimization",
-        "Inventory Management",
-        "Trend Prediction",
-        "Real-time Analytics"
-      ],
-      color: "from-purple-500 to-pink-500",
-      bgColor: "from-purple-500/10 to-pink-500/10"
-    },
-    {
-      icon: Cpu,
-      title: "AI/IoT Computer Vision",
-      shortDesc: "Smart vision systems for physical retail",
-      description: "Bring AI-powered eyes to your physical stores with our computer vision solutions. Monitor customer behavior, track inventory, and enable frictionless checkout experiences that revolutionize in-store operations.",
-      features: [
-        "In-Store Analytics",
-        "Shelf Monitoring",
-        "Frictionless Checkout",
-        "Customer Flow Analysis",
-        "Loss Prevention",
-        "Smart Inventory Tracking"
+        "HTML5 & CSS3 Fundamentals",
+        "JavaScript ES6+ Programming",
+        "React.js Framework",
+        "Responsive Design Principles",
+        "Version Control with Git & GitHub",
+        "Personal Portfolio Project"
       ],
       color: "from-blue-500 to-cyan-500",
       bgColor: "from-blue-500/10 to-cyan-500/10"
     },
     {
-      icon: Shield,
-      title: "Cybersecurity Solutions",
-      shortDesc: "Protecting your AI infrastructure",
-      description: "Secure your AI systems and customer data with our comprehensive cybersecurity solutions. We implement robust security measures to protect against adversarial attacks and ensure data privacy compliance.",
+      icon: Database,
+      title: "Data Analytics & Visualization",
+      shortDesc: "Turn data into actionable insights",
+      description: "Learn to analyze and visualize data using industry-standard tools. Master Excel, Python, and Power BI through live workshops and create end-to-end business intelligence reports.",
       features: [
-        "AI Model Security",
-        "Data Encryption",
-        "Adversarial Attack Prevention",
-        "Privacy Compliance",
-        "Secure Data Pipelines",
-        "Threat Detection"
-      ],
-      color: "from-red-500 to-orange-500",
-      bgColor: "from-red-500/10 to-orange-500/10"
-    },
-    {
-      icon: Code,
-      title: "Frontend Development",
-      shortDesc: "Intuitive AI-powered interfaces",
-      description: "Create beautiful, functional interfaces that make complex AI insights accessible to your team. Our frontend solutions transform raw data into actionable dashboards and user-friendly applications.",
-      features: [
-        "Interactive Dashboards",
-        "Data Visualizations",
-        "Real-time Monitoring",
-        "Mobile Applications",
-        "User Experience Design",
-        "API Integration"
+        "Excel Advanced Functions & Pivot Tables",
+        "Python for Data Analysis (Pandas, NumPy)",
+        "Data Visualization with Matplotlib",
+        "Power BI Dashboard Creation",
+        "Statistical Analysis Fundamentals",
+        "Business Intelligence Report Project"
       ],
       color: "from-green-500 to-emerald-500",
       bgColor: "from-green-500/10 to-emerald-500/10"
     },
     {
-      icon: Database,
-      title: "Data Analytics",
-      shortDesc: "Transform raw data into insights",
-      description: "Turn your retail data into a competitive advantage with our comprehensive analytics solutions. From data cleaning to advanced pattern recognition, we help you extract maximum value from your information assets.",
+      icon: Sparkles,
+      title: "Cloud & DevOps Foundations",
+      shortDesc: "Deploy and scale applications in the cloud",
+      description: "Get hands-on experience with cloud technologies and modern deployment practices. Learn Linux fundamentals, Docker containerization, and AWS basics while deploying real applications.",
       features: [
-        "Data Cleaning & Processing",
-        "Pattern Recognition",
-        "Statistical Analysis",
-        "Business Intelligence",
-        "Custom Reports",
-        "Data Integration"
+        "Linux Command Line Essentials",
+        "Docker Containerization",
+        "AWS Cloud Services (EC2, S3)",
+        "CI/CD Pipeline Basics",
+        "Infrastructure as Code Intro",
+        "Web App Deployment Project"
+      ],
+      color: "from-purple-500 to-pink-500",
+      bgColor: "from-purple-500/10 to-pink-500/10"
+    },
+    {
+      icon: Shield,
+      title: "Cybersecurity Essentials",
+      shortDesc: "Protect systems and networks from threats",
+      description: "Dive into the world of cybersecurity with live ethical hacking demonstrations. Learn network security, penetration testing, and create comprehensive security audit reports.",
+      features: [
+        "Network Security Fundamentals",
+        "Ethical Hacking Techniques",
+        "Penetration Testing with Kali Linux",
+        "Vulnerability Assessment",
+        "Security Best Practices",
+        "Network Security Audit Project"
+      ],
+      color: "from-red-500 to-orange-500",
+      bgColor: "from-red-500/10 to-orange-500/10"
+    },
+    {
+      icon: Cpu,
+      title: "IoT & Embedded Systems",
+      shortDesc: "Build smart connected devices",
+      description: "Explore the Internet of Things through practical simulations using Raspberry Pi and Arduino. Create smart monitoring systems and learn how to connect physical devices to the internet.",
+      features: [
+        "Raspberry Pi Programming",
+        "Arduino Basics",
+        "Sensor Integration",
+        "IoT Communication Protocols (MQTT)",
+        "Smart Home Automation",
+        "IoT Monitoring Dashboard Project"
+      ],
+      color: "from-indigo-500 to-purple-500",
+      bgColor: "from-indigo-500/10 to-purple-500/10"
+    },
+    {
+      icon: Brain,
+      title: "AI & Machine Learning Basics",
+      shortDesc: "Build intelligent applications with AI",
+      description: "Get started with artificial intelligence and machine learning using Python. Learn data preprocessing, model building, and create your own prediction models through hands-on projects.",
+      features: [
+        "Python Programming for AI",
+        "Machine Learning Fundamentals",
+        "Data Preprocessing Techniques",
+        "Scikit-learn Library",
+        "Model Training & Evaluation",
+        "Prediction Model Project"
       ],
       color: "from-yellow-500 to-amber-500",
       bgColor: "from-yellow-500/10 to-amber-500/10"
-    },
+    }
+  ];
+  
+  const oldServices = [
     {
       icon: Sparkles,
       title: "Full-Stack Solutions",
@@ -112,7 +131,7 @@ const Services = () => {
       name: "Sarah Johnson",
       company: "RetailMax",
       role: "CTO",
-      content: "BillianceAI transformed our inventory management with their ML solutions. We've seen a 40% reduction in stockouts and 25% improvement in profit margins.",
+      content: "VEducate transformed our learning management with their AI solutions. We've seen a 40% improvement in student engagement and 25% increase in learning outcomes.",
       rating: 5
     },
     {
@@ -144,11 +163,11 @@ const Services = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="text-blue-600">
-                Our Services
+                Our Learning Programs
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive AI solutions designed to transform your retail business. From machine learning to computer vision, we provide the technology you need to stay ahead of the competition.
+              Comprehensive, live internship-integrated learning tracks designed to make you industry-ready. From software development to AI/ML, we provide hands-on experience with real-world projects.
             </p>
           </div>
         </div>
@@ -274,21 +293,166 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Pricing Section */}
       <section className="py-20 relative bg-white">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+              Program Enrollment Options
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose the perfect learning track for your career goals. All programs include live mentorship, project guidance, and internship completion certificates.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Standard Track */}
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-600 transition-all duration-500 hover:scale-105 shadow-sm hover:shadow-xl">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Standard</h3>
+                <p className="text-gray-600 text-sm mb-6">Individual learner</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-gray-800">₹2,999</span>
+                  <span className="text-gray-600"> / program</span>
+                </div>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">4-week live program</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Live mentor sessions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Hands-on project work</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Internship certificate</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Email & chat support</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-gray-800 hover:bg-gray-900 text-white rounded-full py-3">
+                Enroll Now
+              </Button>
+            </div>
+
+            {/* Premium Bundle - Featured */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 border-2 border-blue-600 rounded-2xl p-8 transform scale-105 shadow-2xl relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-xs font-bold">MOST POPULAR</span>
+              </div>
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Premium Bundle</h3>
+                <p className="text-blue-100 text-sm mb-6">Best value for learners</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">₹8,999</span>
+                  <span className="text-blue-100"> / 3 programs</span>
+                </div>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">Choose any 3 programs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">Priority mentor access</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">1-on-1 career guidance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">Resume building workshop</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">3 internship certificates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                  <span className="text-white text-sm">Lifetime community access</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-white hover:bg-gray-100 text-blue-600 rounded-full py-3 font-semibold">
+                Enroll Now
+              </Button>
+            </div>
+
+            {/* Institutional Package */}
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-600 transition-all duration-500 hover:scale-105 shadow-sm hover:shadow-xl">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Institutional</h3>
+                <p className="text-gray-600 text-sm mb-6">For colleges & groups</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-gray-800">Custom</span>
+                </div>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Batch training (20+ students)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Customized curriculum</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Dedicated mentor team</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Co-branded certificates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Progress tracking dashboard</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Dedicated account manager</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600 text-sm">Flexible payment terms</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-gray-800 hover:bg-gray-900 text-white rounded-full py-3">
+                Contact Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 relative bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 text-gray-800">
-            Ready to Transform Your Business?
+            Ready to Start Your Learning Journey?
           </h2>
           <p className="text-lg md:text-xl text-gray-600 mb-10 md:mb-12 max-w-2xl mx-auto">
-            Let's discuss how our AI solutions can revolutionize your retail operations
+            Join 480+ students who've transformed their careers through our live, mentor-led programs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 hover:scale-105">
-              Get Started <ArrowRight className="ml-2" size={24} />
+              Enroll Now <ArrowRight className="ml-2" size={24} />
             </Button>
             <Button variant="outline" className="text-base md:text-lg px-10 md:px-12 py-6 md:py-8 h-auto rounded-full font-bold border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300">
-              View Portfolio
+              View Student Projects
             </Button>
           </div>
         </div>

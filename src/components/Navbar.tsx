@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo1 from '@/assets/logo.png';
+import VEducateLogo from '@/components/VEducateLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,11 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Programs', path: '/services' },
+    { name: 'Courses', path: '/portfolio' },
+    { name: 'Internships', path: '/internships' },
+    { name: 'Portfolio', path: '/student-portfolio' },
+    { name: 'Enroll', path: '/contact' }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,13 +44,11 @@ const Navbar = () => {
             to="/" 
             className="flex items-center gap-1.5 sm:gap-2 hover:scale-105 transition-transform duration-300"
           >
-            <img 
-              src={logo1} 
-              alt="billianceai logo" 
-              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 animate-pulse" 
+            <VEducateLogo 
+              size={40}
             />
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">
-              billianceai
+            <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide" style={{ color: '#1e4a7a' }}>
+              VEducate
             </span>
           </Link>
 
@@ -78,8 +78,8 @@ const Navbar = () => {
               asChild
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm"
             >
-              <Link to="/contact">
-                Get Started <ArrowRight className="ml-2" size={14} />
+              <Link to="/auth">
+                Join Live Programs <ArrowRight className="ml-2" size={14} />
               </Link>
             </Button>
           </div>
@@ -136,8 +136,8 @@ const Navbar = () => {
                       asChild
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm sm:text-base"
                     >
-                      <Link to="/contact" onClick={() => setIsOpen(false)}>
-                        Get Started <ArrowRight className="ml-2" size={14} />
+                      <Link to="/auth" onClick={() => setIsOpen(false)}>
+                        Join Live Programs <ArrowRight className="ml-2" size={14} />
                       </Link>
                     </Button>
                   </motion.div>

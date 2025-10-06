@@ -9,12 +9,12 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
+    college: '',
     phone: '',
-    service: '',
+    domain: '',
     message: '',
-    budget: '',
-    timeline: ''
+    year: '',
+    batch: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,13 +29,13 @@ const Contact = () => {
       const templateParams = {
         from_name: formData.name || 'No name provided',
         from_email: formData.email || 'No email provided',
-        company: formData.company || 'No company provided',
+        college: formData.college || 'No college provided',
         phone: formData.phone || 'No phone provided',
-        service: formData.service || 'No service selected',
-        budget: formData.budget || 'No budget specified',
-        timeline: formData.timeline || 'No timeline specified',
+        domain: formData.domain || 'No domain selected',
+        year: formData.year || 'No year specified',
+        batch: formData.batch || 'No batch preference specified',
         message: formData.message || 'No message provided',
-        to_email: EMAILJS_CONFIG.TO_EMAIL,
+        to_email: 'veducate2025@gmail.com',
       };
       
       // Debug: Log the configuration
@@ -76,12 +76,12 @@ const Contact = () => {
         setFormData({
           name: '',
           email: '',
-          company: '',
+          college: '',
           phone: '',
-          service: '',
+          domain: '',
           message: '',
-          budget: '',
-          timeline: ''
+          year: '',
+          batch: ''
         });
       }, 3000);
       
@@ -118,52 +118,52 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@billianceai.com",
-      description: "Send us an email anytime"
+      details: "veducate2025@gmail.com",
+      description: "Send us enrollment inquiries anytime"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
-      description: "Mon-Fri from 9am to 6pm"
+      details: "+91 6380722494",
+      description: "Mon-Fri from 9am to 6pm IST"
     },
     {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "123 AI Street, Tech City",
-      description: "Schedule a meeting with us"
+      icon: Calendar,
+      title: "Live Batches",
+      details: "Starting Every Month",
+      description: "New batches begin on the 1st of each month"
     },
     {
       icon: Clock,
       title: "Response Time",
       details: "Within 24 hours",
-      description: "We respond to all inquiries quickly"
+      description: "We'll share batch details and enrollment steps"
     }
   ];
 
-  const services = [
-    "Machine Learning Solutions",
-    "Computer Vision Systems",
-    "Data Analytics",
-    "Cybersecurity",
-    "Frontend Development",
-    "Full-Stack Solutions"
+  const domains = [
+    "Software Development Fundamentals",
+    "Data Analytics & Visualization",
+    "Cloud & DevOps Foundations",
+    "Cybersecurity Essentials",
+    "IoT & Embedded Systems",
+    "AI & Machine Learning Basics"
   ];
 
-  const budgetRanges = [
-    "$10,000 - $25,000",
-    "$25,000 - $50,000",
-    "$50,000 - $100,000",
-    "$100,000+",
-    "Let's discuss"
+  const yearOfStudy = [
+    "1st Year",
+    "2nd Year",
+    "3rd Year",
+    "4th Year",
+    "Recent Graduate"
   ];
 
-  const timelines = [
-    "1-3 months",
-    "3-6 months",
-    "6-12 months",
-    "12+ months",
-    "Flexible"
+  const batchPreferences = [
+    "Next Available Batch (Starting Soon)",
+    "Weekend Batch",
+    "Weekday Evening Batch",
+    "Full-Time Intensive",
+    "Flexible Schedule"
   ];
 
   return (
@@ -179,11 +179,11 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="text-blue-600">
-                Get In Touch
+                Join Our Live Programs
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your retail business with AI? Let's discuss your project and create something amazing together.
+              Ready to begin your learning journey? Enroll in our live, mentor-led internship tracks and gain hands-on industry experience.
             </p>
           </div>
         </div>
@@ -221,17 +221,17 @@ const Contact = () => {
               {/* Form */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
-                  Start Your Project
+                  Enrollment Application
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Tell us about your project and we'll get back to you within 24 hours.
+                  Complete this form to enroll. Our team will contact you within 24 hours with batch details and next steps.
                 </p>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">We'll get back to you within 24 hours.</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Confirmed Your Interest!</h3>
+                    <p className="text-gray-600">We will connect to you soon with enrollment details and next steps.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -267,86 +267,91 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    {/* Company and Phone */}
+                    {/* College and Phone */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-blue-600 mb-2">
-                          Company
+                          College Name *
                         </label>
                         <input
                           type="text"
-                          name="company"
-                          value={formData.company}
+                          name="college"
+                          required
+                          value={formData.college}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500"
-                          placeholder="Your company name"
+                          placeholder="Your college or university"
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-blue-600 mb-2">
-                          Phone Number
+                          Phone Number *
                         </label>
                         <input
                           type="tel"
                           name="phone"
+                          required
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+91 6380722494"
                         />
                       </div>
                     </div>
 
-                    {/* Service and Budget */}
+                    {/* Domain and Year */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-blue-600 mb-2">
-                          Service Interest
+                          Domain of Interest *
                         </label>
                         <select
-                          name="service"
-                          value={formData.service}
+                          name="domain"
+                          required
+                          value={formData.domain}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500"
                         >
-                          <option value="">Select a service</option>
-                          {services.map((service, index) => (
-                            <option key={index} value={service}>{service}</option>
+                          <option value="">Select learning domain</option>
+                          {domains.map((domain, index) => (
+                            <option key={index} value={domain}>{domain}</option>
                           ))}
                         </select>
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-blue-600 mb-2">
-                          Budget Range
+                          Year of Study *
                         </label>
                         <select
-                          name="budget"
-                          value={formData.budget}
+                          name="year"
+                          required
+                          value={formData.year}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500"
                         >
-                          <option value="">Select budget range</option>
-                          {budgetRanges.map((range, index) => (
-                            <option key={index} value={range}>{range}</option>
+                          <option value="">Select year</option>
+                          {yearOfStudy.map((year, index) => (
+                            <option key={index} value={year}>{year}</option>
                           ))}
                         </select>
                       </div>
                     </div>
 
-                    {/* Timeline */}
+                    {/* Batch Preference */}
                     <div>
                       <label className="block text-sm font-medium text-blue-600 mb-2">
-                        Project Timeline
+                        Batch Preference *
                       </label>
                       <select
-                        name="timeline"
-                        value={formData.timeline}
+                        name="batch"
+                        required
+                        value={formData.batch}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-slate-800/50 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500"
                       >
-                        <option value="">Select timeline</option>
-                        {timelines.map((timeline, index) => (
-                          <option key={index} value={timeline}>{timeline}</option>
+                        <option value="">Select batch preference</option>
+                        {batchPreferences.map((batch, index) => (
+                          <option key={index} value={batch}>{batch}</option>
                         ))}
                       </select>
                     </div>
@@ -354,16 +359,15 @@ const Contact = () => {
                     {/* Message */}
                     <div>
                       <label className="block text-sm font-medium text-blue-600 mb-2">
-                        Project Description *
+                        Message / Query (Optional)
                       </label>
                       <textarea
                         name="message"
-                        required
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-gray-500 resize-none"
-                        placeholder="Tell us about your project, goals, and any specific requirements..."
+                        placeholder="Any specific questions or requirements? (Optional)"
                       />
                     </div>
 
@@ -376,12 +380,12 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending...
+                          Submitting...
                         </>
                       ) : (
                         <>
                           <Send className="mr-2" size={20} />
-                          Send Message
+                          Submit Enrollment
                         </>
                       )}
                     </Button>
@@ -392,7 +396,7 @@ const Contact = () => {
               {/* Contact Details */}
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Why Choose BillianceAI?</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Why Choose VEducate?</h3>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />

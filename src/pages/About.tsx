@@ -4,35 +4,35 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const stats = [
-    { icon: Brain, value: "50+", label: "AI Models Deployed", color: "from-purple-500 to-pink-500" },
-    { icon: Target, value: "95%", label: "Accuracy Rate", color: "from-blue-500 to-cyan-500" },
-    { icon: Users, value: "25+", label: "Happy Clients", color: "from-green-500 to-emerald-500" },
-    { icon: Award, value: "3", label: "Years Experience", color: "from-yellow-500 to-orange-500" }
+    { icon: Users, value: "480+", label: "Students Trained", color: "from-purple-500 to-pink-500" },
+    { icon: Brain, value: "25+", label: "Expert Instructors", color: "from-blue-500 to-cyan-500" },
+    { icon: Target, value: "6+", label: "Core Learning Domains", color: "from-green-500 to-emerald-500" },
+    { icon: Award, value: "8+", label: "College Collaborations", color: "from-yellow-500 to-orange-500" }
   ];
 
   const values = [
     {
       icon: Brain,
-      title: "Innovation First",
-      description: "We push the boundaries of AI technology to create solutions that were previously impossible, always staying ahead of industry trends.",
+      title: "Practical Learning",
+      description: "We believe in learning by doing. Every program combines live classes with hands-on projects, ensuring students gain real-world experience.",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Shield,
-      title: "Security & Trust",
-      description: "Every solution we build prioritizes data security and ethical AI practices, ensuring our clients' information remains protected.",
+      title: "Quality Mentorship",
+      description: "Our certified instructors bring industry experience to the classroom, providing personalized guidance and support throughout the learning journey.",
       color: "from-red-500 to-orange-500"
     },
     {
       icon: Users,
-      title: "Client-Centric",
-      description: "We don't just build technology; we build relationships. Every project is tailored to our client's unique needs and goals.",
+      title: "Student Success",
+      description: "Every learner's growth is our priority. We provide structured internship tracks that build skills, confidence, and career-ready portfolios.",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Zap,
-      title: "Performance",
-      description: "Our solutions are designed for speed and efficiency, delivering results that exceed expectations and drive real business value.",
+      title: "Industry Relevance",
+      description: "Our curriculum is designed to meet current industry demands, ensuring students learn the tools and technologies employers are looking for.",
       color: "from-yellow-500 to-amber-500"
     }
   ];
@@ -88,7 +88,7 @@ const About = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                About BillianceAI
+                About VEducate
               </motion.span>
             </motion.h1>
             <motion.p 
@@ -97,7 +97,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              We are pioneers in retail AI transformation, combining cutting-edge machine learning with real-world business solutions to revolutionize how retailers operate, analyze, and grow.
+              A next-generation learning and internship-enablement platform founded in 2024 to bridge the gap between academic learning and real-world industry experience through live, mentor-led programs.
             </motion.p>
           </div>
         </div>
@@ -160,13 +160,13 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    Founded in 2022, BillianceAI emerged from a simple yet powerful vision: to bridge the gap between artificial intelligence and retail reality. Our founders, a team of passionate data scientists and retail experts, recognized that the retail industry was ripe for transformation.
+                    Founded in 2024, VEducate emerged from a simple yet powerful vision: to bridge the gap between academic learning and real-world industry experience. Our founders recognized that traditional education often leaves students unprepared for the demands of today's tech-driven workplace.
                   </p>
                   <p>
-                    We started with a mission to democratize AI for retailers of all sizes. What began as a small team of six specialists has grown into a comprehensive AI solutions provider, serving clients across multiple retail verticals.
+                    We started with a mission to democratize quality tech education for students across India. What began as a pilot program with 50 students has grown into a comprehensive learning platform, serving 480+ students through live, mentor-led internship tracks.
                   </p>
                   <p>
-                    Today, we're proud to be at the forefront of retail AI innovation, helping businesses not just survive but thrive in an increasingly competitive digital landscape.
+                    Today, we're proud to collaborate with 8+ colleges and universities, helping students not just learn but gain hands-on experience that makes them career-ready from day one.
                   </p>
                 </div>
               </div>
@@ -191,7 +191,7 @@ const About = () => {
               Our Core Values
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do and every solution we create.
+              The principles that guide everything we do and every learning experience we create.
             </p>
           </div>
 
@@ -215,6 +215,59 @@ const About = () => {
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <section className="py-20 relative bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
+              Trusted by Leading Institutions
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Join 8+ colleges and universities that have partnered with VEducate for student success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-5xl mx-auto">
+            {/* Partner College Placeholders */}
+            {['SRMIST', 'VIT Chennai', 'Anna Univ', 'SRM AP', 'MIT Chennai', 'SSN College', 'Amrita', 'PSG Tech'].map((client, index) => (
+              <div 
+                key={index}
+                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-600 hover:shadow-lg transition-all duration-300 flex items-center justify-center h-24"
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-300 group-hover:text-blue-600 transition-colors">
+                    {client.split('').slice(0, 2).join('')}
+                  </div>
+                  <div className="text-xs text-gray-400 group-hover:text-gray-600 mt-1 transition-colors">
+                    {client}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-sm text-gray-600">Live & Interactive</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">95%</div>
+              <div className="text-sm text-gray-600">Student Satisfaction</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">4 Weeks</div>
+              <div className="text-sm text-gray-600">Program Duration</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-sm text-gray-600">Support Available</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
@@ -228,11 +281,11 @@ const About = () => {
             </h2>
             <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-12 shadow-lg">
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-                "To empower retailers with intelligent AI solutions that transform data into actionable insights, 
-                optimize operations, and drive sustainable growth in an ever-evolving digital marketplace."
+                "To equip every learner with industry-relevant skills, practical project exposure, and professional guidance 
+                to become career-ready in today's tech-driven world through live, mentor-led internship programs."
               </p>
               <div className="text-blue-600 font-semibold text-lg">
-                — The BillianceAI Team
+                — The VEducate Team
               </div>
             </div>
           </div>

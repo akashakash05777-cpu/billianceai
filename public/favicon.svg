@@ -1,0 +1,42 @@
+<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- V - Left part -->
+  <path
+    d="M5 15 L25 75 L35 75 L55 15 L45 15 L30 55 L15 15 Z"
+    fill="#1e4a7a"
+  />
+  
+  <!-- Diagonal separator -->
+  <path
+    d="M58 20 L65 75"
+    stroke="#1e4a7a"
+    strokeWidth="6"
+    strokeLinecap="round"
+  />
+  
+  <!-- E - Top bar -->
+  <rect
+    x="70"
+    y="15"
+    width="25"
+    height="8"
+    fill="#1e4a7a"
+  />
+  
+  <!-- E - Middle bar -->
+  <rect
+    x="70"
+    y="41"
+    width="20"
+    height="8"
+    fill="#1e4a7a"
+  />
+  
+  <!-- E - Bottom bar -->
+  <rect
+    x="70"
+    y="67"
+    width="25"
+    height="8"
+    fill="#1e4a7a"
+  />
+</svg>
